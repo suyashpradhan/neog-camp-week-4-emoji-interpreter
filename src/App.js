@@ -3,22 +3,35 @@ import React, { useState } from "react";
 import { emojiDB } from "./EmojiDB";
 import "./styles.css";
 
+//Converting Object into Array
 var emojiArray = Object.keys(emojiDB);
 
+//Main Function Component
 export default function App() {
+  //Using State
   const [emojiMeaning, setEmojiMeaning] = useState("");
 
-  function inputChangeEventHandler(event) {
-    var input = event.target.value;
-    var emojiMeaning = emojiDB[input];
-    if (input === undefined) {
-      emojiMeaning = "we don't have this in our database";
-    }
-    setEmojiMeaning(emojiMeaning); // react call to show output
+  //Declaring clickEventHandler Function
+  function clickEventHandler(emoji) {
+    /*Getting the value from our database object and 
+    setting the state and passing the value as state variable*/
+    setEmojiMeaning(emojiDB[emoji]);
   }
 
-  function emojiClickHandler(emoji) {
-    var emojiMeaning = emojiDB[emoji];
+  //Declaring inputChangeEventHandler Function for getting value as an user input
+  function inputChangeEventHandler(event) {
+    //Getting value of user input using event.target
+    let userInput = event.target.value;
+
+    //Storing value in our state variable after passing user input to our database object
+    let emojiMeaning = emojiDB[userInput];
+
+    //Checking Condition if the emoji is not present then throw an error
+    if (emojiMeaning === undefined) {
+      emojiMeaning = "We don't have that emoji yet! Sorry:(";
+    }
+
+    //Setting State Function to re-render the state
     setEmojiMeaning(emojiMeaning);
   }
 
@@ -43,15 +56,17 @@ export default function App() {
           <h1 className="message">{emojiMeaning}</h1>
         </div>
         <div className="emojiList">
-          <h1 className="divHeader">Frequently Used Emojis</h1>
+          <h1 className="divHeader">
+            Frequently Used Emojis <span>(Click to get the meaning)</span>
+          </h1>
 
           <ul className="emojiCollection">
-            {emojiArray.map((emoji) => {
+            {emojiArray.map((emoji, index) => {
               return (
                 <li
                   className="emoji"
-                  onClick={() => emojiClickHandler(emoji)}
-                  key={emoji}
+                  key={index}
+                  onClick={() => clickEventHandler(emoji)}
                 >
                   {emoji}
                 </li>

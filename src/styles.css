@@ -27,7 +27,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .header {
@@ -43,10 +42,11 @@ html {
 .emojiCard {
   background-color: #ffff;
   padding: 2rem;
-  max-width: 100%;
+  max-width: 40rem;
+
   border-radius: 0.6rem;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  margin: 0 1rem;
+  margin: 1rem;
 }
 
 label {
@@ -88,16 +88,21 @@ label {
   color: #333;
 }
 
+.divHeader span {
+  font-size: 0.9rem;
+  color: #696969;
+}
+
 .emojiCollection {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-flow: row wrap;
 }
 
 .emojiCollection li {
   list-style: none;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
 }
 
 .emoji {
@@ -112,4 +117,18 @@ label {
 
 .emoji:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
+}
+
+@media screen and (max-width: 600px) and (min-width: 0px) {
+  .header {
+    font-size: 1.6rem;
+  }
+
+  .divHeader {
+    font-size: 1rem;
+  }
+
+  .divHeader span {
+    font-size: 0.8rem;
+  }
 }
