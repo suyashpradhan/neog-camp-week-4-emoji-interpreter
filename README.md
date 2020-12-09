@@ -1,5 +1,6 @@
 # Animals Emoji Interpreter
 
-## A Reactjs Animal Emoji Interpreter App built using Codesandbox
+## An Animal Emoji Interpreter app built using Reactjs.
 
+![poster](poster.png)
 App Link [!https://u158i.csb.app/]
