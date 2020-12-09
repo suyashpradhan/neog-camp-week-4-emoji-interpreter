@@ -4,4 +4,4 @@
 
 ![poster](/src/poster.png)
 
-### App Link [!https://u158i.csb.app/]
+### App Link [!https://animal-emoji-interpreter.netlify.app/]
