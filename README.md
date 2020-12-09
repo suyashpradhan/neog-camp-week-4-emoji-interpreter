@@ -2,5 +2,5 @@
 
 ## An Animal Emoji Interpreter app built using Reactjs.
 
-![poster](poster.png)
+![poster](/src/poster.png)
 App Link [!https://u158i.csb.app/]
