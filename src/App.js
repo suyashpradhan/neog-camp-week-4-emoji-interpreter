@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { emojiDB } from "./EmojiDB";
 import "./styles.css";
 
-//Converting Object into Array
+//Converting Object into Array of Keys
 var emojiArray = Object.keys(emojiDB);
 
 //Main Function Component
@@ -27,12 +27,14 @@ export default function App() {
     let emojiMeaning = emojiDB[userInput];
 
     //Checking Condition if the emoji is not present then throw an error
-    if (emojiMeaning === undefined) {
-      emojiMeaning = "We don't have that emoji yet! Sorry:(";
+    if (emojiMeaning in emojiDB) {
+      setEmojiMeaning(emojiMeaning);
+    } else if (userInput.length === 0) {
+      setEmojiMeaning("");
+    } else {
+      //Setting State Function to re-render the state
+      setEmojiMeaning("We don't have that emoji yet! Sorry:(");
     }
-
-    //Setting State Function to re-render the state
-    setEmojiMeaning(emojiMeaning);
   }
 
   return (
